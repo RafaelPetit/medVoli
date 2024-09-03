@@ -1,5 +1,6 @@
 package med.voli.api.medico;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void create(@RequestBody CreateMedicoDto medico) {
+    public void create(@RequestBody @Valid CreateMedicoDto medico) {
         repository.save(new Medico(medico));
     }
 }
