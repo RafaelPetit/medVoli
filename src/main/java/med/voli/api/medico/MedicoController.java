@@ -3,8 +3,9 @@ package med.voli.api.medico;
 import jakarta.validation.Valid;
 import med.voli.api.medico.dto.CreateMedicoDto;
 import med.voli.api.medico.dto.ResponseListMedicoDto;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +19,12 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public Medico create(@RequestBody @Valid CreateMedicoDto medico) {
-       return repository.save(new Medico(medico));
+    public void create(@RequestBody @Valid CreateMedicoDto medico) {
+       repository.save(new Medico(medico));
     }
 
     @GetMapping
-    public List<ResponseListMedicoDto> list() {
-        return repository.findAll().stream().map(ResponseListMedicoDto::new).toList();
+    public Page<ResponseListMedicoDto> getAll(Pageable pageable) {
+        return repository.findAll(pageable).map(ResponseListMedicoDto::new);
     }
 }
