@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import med.voli.api.endereco.dto.EnderecoDto;
 
 @Data
 @Embeddable
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
     public class Endereco {

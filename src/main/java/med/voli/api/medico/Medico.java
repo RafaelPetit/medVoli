@@ -3,10 +3,12 @@ package med.voli.api.medico;
 import jakarta.persistence.*;
 import lombok.*;
 import med.voli.api.endereco.Endereco;
+import med.voli.api.medico.dto.CreateMedicoDto;
 
 @Entity(name = "medico")
 @Table(name = "medicos")
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
