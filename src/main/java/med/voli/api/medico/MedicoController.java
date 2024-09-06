@@ -16,7 +16,7 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void create(@RequestBody @Valid CreateMedicoDto medico) {
-        repository.save(new Medico(medico));
+    public Medico create(@RequestBody @Valid CreateMedicoDto medico) {
+       return repository.save(new Medico(medico));
     }
 }
