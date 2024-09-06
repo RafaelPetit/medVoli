@@ -3,6 +3,7 @@ package med.voli.api.medico;
 import jakarta.validation.Valid;
 import med.voli.api.medico.dto.CreateMedicoDto;
 import med.voli.api.medico.dto.ResponseListMedicoDto;
+import med.voli.api.medico.dto.UpdateMedicoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +11,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/medico")
@@ -26,6 +27,14 @@ public class MedicoController {
 
     @GetMapping
     public Page<ResponseListMedicoDto> getAll(@PageableDefault(size = 10, sort={"nome"}) Pageable pageable) {
-        return repository.findAll(pageable).map(ResponseListMedicoDto::new);
+        return repository.findAll(pageable)
+                .map(ResponseListMedicoDto::new);
+    }
+
+    @PatchMapping
+    @Transactional
+    public void update(@RequestBody @Valid UpdateMedicoDto medico) {
+       repository.findById(medico.id())
+               .ifPresent(m -> m.updateData(medico));
     }
 }

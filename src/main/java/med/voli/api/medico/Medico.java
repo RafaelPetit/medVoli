@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import med.voli.api.endereco.Endereco;
 import med.voli.api.medico.dto.CreateMedicoDto;
+import med.voli.api.medico.dto.UpdateMedicoDto;
+
+import java.util.Optional;
 
 @Entity(name = "medico")
 @Table(name = "medicos")
@@ -33,5 +36,17 @@ public class Medico {
         this.crm = medico.crm();
         this.especialidade = medico.especialidade();
         this.endereco = new Endereco(medico.endereco());
+    }
+
+    public void updateData(UpdateMedicoDto medico) {
+        if (medico.nome() != null) {
+            this.nome = medico.nome();
+        }
+        if (medico.telefone() != null) {
+            this.telefone = medico.telefone();
+        }
+        if (medico.endereco() != null) {
+            this.endereco.updateData(medico.endereco());
+        }
     }
 }
