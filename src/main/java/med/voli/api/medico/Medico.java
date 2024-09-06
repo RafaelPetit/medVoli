@@ -6,7 +6,6 @@ import med.voli.api.endereco.Endereco;
 import med.voli.api.medico.dto.CreateMedicoDto;
 import med.voli.api.medico.dto.UpdateMedicoDto;
 
-import java.util.Optional;
 
 @Entity(name = "medico")
 @Table(name = "medicos")
