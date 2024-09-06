@@ -11,6 +11,7 @@ import java.util.Optional;
 @Entity(name = "medico")
 @Table(name = "medicos")
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +23,7 @@ public class Medico {
     private String email;
     private String telefone;
     private String crm;
+    private boolean status = true;
 
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;

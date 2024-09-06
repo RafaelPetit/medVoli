@@ -27,7 +27,7 @@ public class MedicoController {
 
     @GetMapping
     public Page<ResponseListMedicoDto> getAll(@PageableDefault(size = 10, sort={"nome"}) Pageable pageable) {
-        return repository.findAll(pageable)
+        return repository.findAllByStatusTrue(pageable)
                 .map(ResponseListMedicoDto::new);
     }
 
@@ -36,5 +36,12 @@ public class MedicoController {
     public void update(@RequestBody @Valid UpdateMedicoDto medico) {
        repository.findById(medico.id())
                .ifPresent(m -> m.updateData(medico));
+    }
+
+    @DeleteMapping("{id}")
+    @Transactional
+    public void delete(@PathVariable Long id) {
+        repository.findById(id)
+                .ifPresent(m -> m.setStatus(false));
     }
 }
