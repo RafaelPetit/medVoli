@@ -32,6 +32,13 @@ public class MedicoController {
         return ResponseEntity.created(uri).body(new ResponseMedicoDto(createdMedico));
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<ResponseMedicoDto> readOne(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
+        var medico = repository.findById(id);
+
+        return ResponseEntity.ok(new ResponseMedicoDto(medico.get()));
+    }
+
     @GetMapping
     public ResponseEntity<Page<ResponseListMedicoDto>> readAll(@PageableDefault(size = 10, sort={"nome"}) Pageable pageable) {
         var page = repository.findAllByStatusTrue(pageable)
@@ -41,20 +48,13 @@ public class MedicoController {
 
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<ResponseMedicoDto> readOne(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
-        var medico = repository.findById(id);
-
-        return ResponseEntity.ok(new ResponseMedicoDto(medico.orElseThrow(ChangeSetPersister.NotFoundException::new)));
-    }
-
     @PatchMapping
     @Transactional
     public ResponseEntity<ResponseMedicoDto> update(@RequestBody @Valid UpdateMedicoDto medico) throws ChangeSetPersister.NotFoundException {
         var updatedMedico = repository.findById(medico.id());
         updatedMedico.ifPresent(m -> m.updateData(medico));
 
-        return ResponseEntity.ok(new ResponseMedicoDto(updatedMedico.orElseThrow(ChangeSetPersister.NotFoundException::new)));
+        return ResponseEntity.ok(new ResponseMedicoDto(updatedMedico.get()));
     }
 
     @DeleteMapping("{id}")

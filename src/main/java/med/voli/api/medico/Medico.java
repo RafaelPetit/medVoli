@@ -11,7 +11,6 @@ import med.voli.api.medico.dto.UpdateMedicoDto;
 @Table(name = "medicos")
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")

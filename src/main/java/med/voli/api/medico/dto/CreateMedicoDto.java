@@ -10,11 +10,13 @@ import med.voli.api.medico.Especialidade;
 
 public record CreateMedicoDto(
         @NotBlank
+        @Pattern(regexp = "^[a-zA-ZÀ-ÖØ-öø-ÿ\\s'\\-]{3,}$")
         String nome,
         @NotBlank
         @Email
         String email,
         @NotBlank
+        @Pattern(regexp = "^[0-9]{11}$")
         String telefone,
         @NotBlank
         @Pattern(regexp = "\\d{4,6}")

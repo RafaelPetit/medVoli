@@ -31,6 +31,10 @@ import med.voli.api.endereco.dto.EnderecoDto;
         this.uf = endereco.uf();
     }
 
+    public Endereco(Endereco endereco) {
+    }
+
+
     public void updateData(EnderecoDto endereco) {
         if (endereco.logradouro() != null) {
             this.logradouro = endereco.logradouro();
