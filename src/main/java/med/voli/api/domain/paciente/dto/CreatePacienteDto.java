@@ -1,8 +1,8 @@
-package med.voli.api.paciente.dto;
+package med.voli.api.domain.paciente.dto;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
-import med.voli.api.endereco.dto.EnderecoDto;
+import med.voli.api.domain.endereco.dto.EnderecoDto;
 import org.hibernate.validator.constraints.br.CPF;
 
 public record CreatePacienteDto (

@@ -1,10 +1,10 @@
-package med.voli.api.paciente;
+package med.voli.api.domain.paciente;
 
 import jakarta.persistence.*;
 import lombok.*;
-import med.voli.api.endereco.Endereco;
-import med.voli.api.paciente.dto.CreatePacienteDto;
-import med.voli.api.paciente.dto.UpdatePacienteDto;
+import med.voli.api.domain.endereco.Endereco;
+import med.voli.api.domain.paciente.dto.CreatePacienteDto;
+import med.voli.api.domain.paciente.dto.UpdatePacienteDto;
 
 @Entity(name = "paciente")
 @Table(name = "pacientes")

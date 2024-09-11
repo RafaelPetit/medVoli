@@ -1,12 +1,11 @@
-package med.voli.api.medico;
+package med.voli.api.domain.medico;
 
 import jakarta.validation.Valid;
-import med.voli.api.medico.dto.CreateMedicoDto;
-import med.voli.api.medico.dto.ResponseListMedicoDto;
-import med.voli.api.medico.dto.ResponseMedicoDto;
-import med.voli.api.medico.dto.UpdateMedicoDto;
+import med.voli.api.domain.medico.dto.ResponseMedicoDto;
+import med.voli.api.domain.medico.dto.CreateMedicoDto;
+import med.voli.api.domain.medico.dto.ResponseListMedicoDto;
+import med.voli.api.domain.medico.dto.UpdateMedicoDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -33,7 +32,7 @@ public class MedicoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<ResponseMedicoDto> readOne(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
+    public ResponseEntity<ResponseMedicoDto> readOne(@PathVariable Long id) {
         var medico = repository.findById(id);
 
         return ResponseEntity.ok(new ResponseMedicoDto(medico.get()));
@@ -50,7 +49,7 @@ public class MedicoController {
 
     @PatchMapping
     @Transactional
-    public ResponseEntity<ResponseMedicoDto> update(@RequestBody @Valid UpdateMedicoDto medico) throws ChangeSetPersister.NotFoundException {
+    public ResponseEntity<ResponseMedicoDto> update(@RequestBody @Valid UpdateMedicoDto medico) {
         var updatedMedico = repository.findById(medico.id());
         updatedMedico.ifPresent(m -> m.updateData(medico));
 

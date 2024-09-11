@@ -1,6 +1,6 @@
-package med.voli.api.paciente.dto;
+package med.voli.api.domain.paciente.dto;
 
-import med.voli.api.paciente.Paciente;
+import med.voli.api.domain.paciente.Paciente;
 
 public record ResponseListPacienteDto(String nome, String email, String cpf){
     public ResponseListPacienteDto(Paciente paciente) {

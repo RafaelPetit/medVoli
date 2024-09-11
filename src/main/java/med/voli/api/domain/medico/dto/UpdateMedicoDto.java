@@ -1,10 +1,11 @@
-package med.voli.api.paciente.dto;
+package med.voli.api.domain.medico.dto;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import med.voli.api.endereco.dto.EnderecoDto;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import med.voli.api.domain.endereco.dto.EnderecoDto;
 
-public record UpdatePacienteDto(
+public record UpdateMedicoDto(
         @NotNull
         Long id,
         @Pattern(regexp = "^[a-zA-ZÀ-ÖØ-öø-ÿ\\s'\\-]{3,}$")

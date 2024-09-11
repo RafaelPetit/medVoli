@@ -1,8 +1,8 @@
-package med.voli.api.medico.dto;
+package med.voli.api.domain.medico.dto;
 
-import med.voli.api.endereco.Endereco;
-import med.voli.api.medico.Especialidade;
-import med.voli.api.medico.Medico;
+import med.voli.api.domain.endereco.Endereco;
+import med.voli.api.domain.medico.Medico;
+import med.voli.api.domain.medico.Especialidade;
 
 
 public record ResponseMedicoDto(Long id, String nome, String crm, String telefone, String email, Especialidade especialidade, Endereco endereco) {

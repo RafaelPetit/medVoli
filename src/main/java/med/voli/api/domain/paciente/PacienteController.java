@@ -1,10 +1,10 @@
-package med.voli.api.paciente;
+package med.voli.api.domain.paciente;
 
 import jakarta.validation.Valid;
-import med.voli.api.paciente.dto.CreatePacienteDto;
-import med.voli.api.paciente.dto.ResponseListPacienteDto;
-import med.voli.api.paciente.dto.ResponsePacienteDto;
-import med.voli.api.paciente.dto.UpdatePacienteDto;
+import med.voli.api.domain.paciente.dto.CreatePacienteDto;
+import med.voli.api.domain.paciente.dto.ResponseListPacienteDto;
+import med.voli.api.domain.paciente.dto.ResponsePacienteDto;
+import med.voli.api.domain.paciente.dto.UpdatePacienteDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
