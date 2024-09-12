@@ -13,7 +13,6 @@ import java.util.List;
 @Table(name = "users")
 @Entity(name = "User")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -27,7 +26,6 @@ public class User implements UserDetails {
         this.username = createUserDto.username();
         this.password = createUserDto.password();
     }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,4 +61,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
