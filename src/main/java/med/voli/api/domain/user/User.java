@@ -27,6 +27,11 @@ public class User implements UserDetails {
         this.password = createUserDto.password();
     }
 
+    public User(String username, String encodedPassword) {
+        this.username = username;
+        this.password = encodedPassword;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
