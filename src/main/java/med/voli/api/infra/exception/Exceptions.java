@@ -1,7 +1,6 @@
-package med.voli.api.infra;
+package med.voli.api.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.hibernate.mapping.Any;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
