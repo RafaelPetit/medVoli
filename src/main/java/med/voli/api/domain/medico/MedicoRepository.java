@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public interface MedicoRepository extends JpaRepository<Medico, Long> {
    Page<Medico> findAllByStatusTrue(Pageable pageable);
 
-    @Query("""
+    @Query(value = """
             select m from Medico m
             where
             m.status = true
@@ -22,7 +22,14 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             )
             order by rand()
             limit 1
-            """)
+            """, nativeQuery = true)
     Medico findFirstByEspecialidade(Especialidade especialidade, LocalDateTime data);
 
+    @Query(value = """
+            select m from Medico m
+            where
+            m.status = true
+            and m.id = :id
+            """, nativeQuery = true)
+    Boolean findActiveById(Long id);
 }
