@@ -1,5 +1,6 @@
 package med.voli.api.domain.consulta;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voli.api.domain.consulta.dto.CreateConsultaDto;
 import med.voli.api.domain.consulta.dto.ResponseCreateConsultaDto;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("consulta")
+@SecurityRequirement(name = "bearer-key")
 public class ConsultaController {
 
     @Autowired

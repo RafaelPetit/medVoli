@@ -1,5 +1,6 @@
 package med.voli.api.domain.paciente;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voli.api.domain.paciente.dto.CreatePacienteDto;
 import med.voli.api.domain.paciente.dto.ResponseListPacienteDto;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController()
 @RequestMapping("/paciente")
+@SecurityRequirement(name = "bearer-key")
 public class PacienteController {
     @Autowired
     private PacienteRepository repository;
