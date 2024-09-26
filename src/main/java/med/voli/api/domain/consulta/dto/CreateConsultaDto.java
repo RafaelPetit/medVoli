@@ -14,8 +14,7 @@ public record CreateConsultaDto(
         @NotNull
         Long idPaciente,
 
-
         @NotNull
-        @Future LocalDateTime data
+        LocalDateTime data
 ) {
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MedicHasAnotherAppointment implements AppointmentSchedulerValidator {
+public class MedicHasAnotherAppointmentValidation implements AppointmentSchedulerValidator {
 
     @Autowired
     private ConsultaRepository consultaRepository;

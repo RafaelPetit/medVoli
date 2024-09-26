@@ -20,10 +20,10 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity create(@RequestBody @Valid CreateConsultaDto createConsultaDto) {
-        consultaService.create(createConsultaDto);
+    public ResponseEntity<ResponseCreateConsultaDto> create(@RequestBody @Valid CreateConsultaDto createConsultaDto) {
+        var createdAppointment = consultaService.create(createConsultaDto);
 
-        return ResponseEntity.ok(new ResponseCreateConsultaDto(null, null, null, null));
+        return ResponseEntity.ok(createdAppointment);
     }
 
 }

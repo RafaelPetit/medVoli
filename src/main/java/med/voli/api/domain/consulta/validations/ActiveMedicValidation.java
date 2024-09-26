@@ -1,8 +1,8 @@
 package med.voli.api.domain.consulta.validations;
 
-import jakarta.validation.ValidationException;
 import med.voli.api.domain.consulta.dto.CreateConsultaDto;
 import med.voli.api.domain.medico.MedicoRepository;
+import med.voli.api.infra.exception.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +18,7 @@ public class ActiveMedicValidation implements AppointmentSchedulerValidator {
         }
 
         var activeMedic = medicoRepository.findActiveById(createConsultaDto.idMedico());
+
         if(!activeMedic) {
             throw new ValidationException("Medic is not active");
         }

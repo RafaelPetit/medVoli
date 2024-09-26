@@ -11,7 +11,8 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
    Page<Medico> findAllByStatusTrue(Pageable pageable);
 
     @Query(value = """
-            select m from Medico m
+            select m
+            from Medico m
             where
             m.status = true
             and m.especialidade = :especialidade
@@ -22,14 +23,15 @@ public interface MedicoRepository extends JpaRepository<Medico, Long> {
             )
             order by rand()
             limit 1
-            """, nativeQuery = true)
+            """)
     Medico findFirstByEspecialidade(Especialidade especialidade, LocalDateTime data);
 
-    @Query(value = """
-            select m from Medico m
-            where
-            m.status = true
-            and m.id = :id
-            """, nativeQuery = true)
+
+    @Query("""
+            select m.status
+            from Medico m
+            where m.id = :id
+            """)
     Boolean findActiveById(Long id);
+
 }

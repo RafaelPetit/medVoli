@@ -33,6 +33,11 @@ public class Exceptions {
         return ResponseEntity.badRequest().body(errors.stream().map(ValidationDataErrors::new).toList());
     }
 
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity handleExistingValidationException(ValidationException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity tratarErro400(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());

@@ -10,7 +10,7 @@ import med.voli.api.domain.paciente.Paciente;
 
 import java.time.LocalDateTime;
 
-@Table(name = "consulta")
+@Table(name = "consultas")
 @Entity(name = "Consulta")
 @Getter
 @NoArgsConstructor
