@@ -63,6 +63,6 @@ public class ConsultaService {
             throw new ValidationException("Especialidade is required when medic is not informed");
         }
 
-        return medicoRepository.findFirstByEspecialidade(createConsultaDto.especialidade(), createConsultaDto.data());
+        return medicoRepository.findRandomByAvailableMedicOnDate(createConsultaDto.especialidade(), createConsultaDto.data());
     }
 }
