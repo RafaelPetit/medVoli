@@ -7,7 +7,7 @@ import med.voli.api.domain.medico.dto.CreateMedicoDto;
 import med.voli.api.domain.medico.dto.UpdateMedicoDto;
 
 
-@Entity(name = "medico")
+@Entity(name = "Medico")
 @Table(name = "medicos")
 @Getter
 @Setter

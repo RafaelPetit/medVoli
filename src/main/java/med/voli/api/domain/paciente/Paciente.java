@@ -6,7 +6,7 @@ import med.voli.api.domain.endereco.Endereco;
 import med.voli.api.domain.paciente.dto.CreatePacienteDto;
 import med.voli.api.domain.paciente.dto.UpdatePacienteDto;
 
-@Entity(name = "paciente")
+@Entity(name = "Paciente")
 @Table(name = "pacientes")
 @NoArgsConstructor
 @AllArgsConstructor
